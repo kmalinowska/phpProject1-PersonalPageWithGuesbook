@@ -22,6 +22,13 @@ function notFound(): void
     exit; //stop the execution of the script
 }
 
+function badRequest(string $message = 'Bad request'):void
+{
+    http_response_code(400);
+    echo $message;
+    exit;
+}
+
 //wysłanie prośby, mamy tu 2 argumenty: uri - część adresu url bez domeny oraz metoda - musi byc ona wywołana wewnątrz index.php
 function dispatch(string $uri, string $method): void
 {

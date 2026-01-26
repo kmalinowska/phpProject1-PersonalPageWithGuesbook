@@ -16,3 +16,16 @@ function loadSchema(PDO $pdo, string $schemaFile):void {
     $pdo->exec($sql); //runs sql
     echo "Schema loaded successfully.\n";
 }
+
+//function insert the new message into the database
+function insertMessage(PDO $pdo, string $name, string $email, string $message): bool {
+    $sql = "INSERT INTO messages (name, email, message) VALUES (:name, :email, :message)"; //use placeholders :name, :email etc. - aby uniknąć sytuacji gdzie w podanym przez użytkownika danej, w inpucie nie ma kodu sql, któy wywołałby się w naszym kodzie i zepsuł cały program!!!
+    $stmt = $pdo->prepare($sql); //prepare a statement -> next run the query
+    //obiekt stmt zwracany przez pdo, na którym używamy metodę execute, nadanie nazwy wartości zmiennych dla bezpiecznego uruchomienia zapytania
+    $stmt->execute([ 
+        ':name' => $name,
+        ':email' => $email,
+        ':message' => $message,
+    ]);
+    return $stmt->rowCount() > 0; //sprawdzenie czy zapytanie się wykonało
+}

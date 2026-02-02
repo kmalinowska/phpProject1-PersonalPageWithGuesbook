@@ -35,6 +35,11 @@ function serverError(string $message = 'Server error'):void {
     exit;
 }
 
+function redirect(string $uri): void {
+    header("Location: $uri");
+    exit();
+}
+
 //wysłanie prośby, mamy tu 2 argumenty: uri - część adresu url bez domeny oraz metoda - musi byc ona wywołana wewnątrz index.php
 function dispatch(string $uri, string $method): void
 {

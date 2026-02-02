@@ -29,3 +29,10 @@ function insertMessage(PDO $pdo, string $name, string $email, string $message): 
     ]);
     return $stmt->rowCount() > 0; //sprawdzenie czy zapytanie się wykonało
 }
+
+//funkcja pobierająca dane z bazy danych i wyświetlająca je na stronie księgi gości
+function getMessages(PDO $pdo):array {
+    $sql = "SELECT * FROM messages ORDER BY created_at DESC"; //query
+    $stmt = $pdo->query($sql);//statement - instrukcja utworzona poprzez wywołanie zapytania pdo za pomocą sql, bez argumentów;
+    return $stmt->fetchAll(PDO::FETCH_ASSOC); //uruchomienie instrukcji poprzez wywołanie "pobierz wszystko" - fetchALL; przekazanie jednego argumentu okreslającego sposób otrzymania wyników - tutaj tryb fetch::assco - pobierz do tablicy asocjacyjnej w ktorej każdy klucz to nazwa kolumny a wartość, to wartość kolumny
+}

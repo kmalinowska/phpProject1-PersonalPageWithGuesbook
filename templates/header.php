@@ -115,5 +115,6 @@
     <nav> <!-- navigation -->
         <a href="/">Home</a>
         <a href="/contact">Contact Form</a> <!-- dodane w momencie utworzenia template contect_get, prowadzi do strony kontaktowej -->
+        <a href="/guestbook">Guestbook</a>
     </nav>
     <main>

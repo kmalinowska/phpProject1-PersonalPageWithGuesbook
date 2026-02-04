@@ -7,6 +7,7 @@ const INDEX_ROUTE = 'index'; //to nam mówi, że jeśli przeglądamy strone gł�
 
 function normalizeUri(string $uri): string
 {
+    $uri = strtok($uri, '?'); //funkcja ta podzieli ciąg znaków na mniejsze fragmenty ograniczone w tym przypadku znakiem zapytania i zwróci ciąg znaków przed ogranicznikiem
     $uri = strtolower(trim($uri, '/'));
     return $uri === INDEX_URI ? INDEX_ROUTE : $uri;
 }

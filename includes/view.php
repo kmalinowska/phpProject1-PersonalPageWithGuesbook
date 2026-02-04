@@ -6,7 +6,7 @@ function renderView(string $template, array $data = []): void //load some php fi
 {
     // dodane poniżej pliki, automatycznie uzyskają dostęp do zmiennej danych: $data
     // można bezpiecznie używać zmiennej danych w każdym z tych szablonów
-    include TEMPLATES_DIR . '/'  . $template . '.php'; //main template we'd like to render - wyrenderowanie szablonu
     include TEMPLATES_DIR . '/header.php';
+    include TEMPLATES_DIR . '/'  . $template . '.php'; //main template we'd like to render - wyrenderowanie szablonu
     include TEMPLATES_DIR . '/footer.php';
 }

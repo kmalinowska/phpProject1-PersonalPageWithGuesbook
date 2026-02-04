@@ -1,4 +1,5 @@
 <?php
+//var_dump($_GET);
 //route to display the form
 renderView('contact_get', ['csrfToken' => getCurrentCsrfToken()]);
 //wyrendowanie widoku, poprzez przekazanie nazwy szablonu/template będąca taką samą nazwą jak nazwa danego route
